@@ -1,0 +1,14 @@
+{
+  "name": "Michi — Japan, Better Planned",
+  "short_name": "Michi",
+  "description": "A practical Japan travel companion for cities, food, transport, accommodation and trip planning.",
+  "lang": "en",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F7F5EF",
+  "theme_color": "#F7F5EF",
+  "icons": [
+    { "src": "michi-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
