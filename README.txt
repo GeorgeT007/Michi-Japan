@@ -1,17 +1,22 @@
-Michi Japan — GitHub Pages version
+MICHI AI BACKEND
 
-This folder is prepared for GitHub Pages and contains no Netlify configuration or Netlify function files.
+This folder is a small Node.js service for the Michi Japan GitHub Pages website.
 
-FILES
-- index.html: website homepage (upload this at the repository root)
-- manifest.webmanifest, michi-icon.svg, sw.js: installable-site support files
+IMPORTANT SECURITY NOTES
+- Never put your OpenAI API key in index.html or any GitHub file.
+- Add OPENAI_API_KEY only as a private environment variable in the hosting dashboard.
+- This service can use OpenAI web search; API requests may consume your OpenAI API credit.
 
-PUBLISH
-1. Open your GitHub repository.
-2. Upload these four files to the repository root (same level as index.html).
-3. In Settings > Pages, choose Deploy from a branch, select main and /(root), then Save.
+DEPLOYMENT SETTINGS
+- Runtime/language: Node
+- Root directory (if asked): michi-ai-backend
+- Build command: npm install
+- Start command: npm start
+- Instance: choose Free if available; do not select a paid plan unless you want to pay.
+- Environment variable: OPENAI_API_KEY = your secret API key (enter privately in host dashboard)
+- Optional environment variable: ALLOWED_ORIGINS = https://georget007.github.io
+- Optional environment variable: OPENAI_MODEL = gpt-4.1-mini
 
-IMPORTANT ABOUT MICHI AI
-GitHub Pages only hosts static files. In this version, Michi AI uses the built-in demo planner and does not call OpenAI. To enable live OpenAI answers, connect a separate secure backend host and configure its URL. Never put OPENAI_API_KEY in index.html or any public GitHub file.
+After deployment, test https://YOUR-SERVICE-URL/health. It should return status ok and configured true after the key is saved.
 
-No Netlify files are included in this package.
+The website frontend must then be updated to call https://YOUR-SERVICE-URL/api/chat. Do not share the secret key in chat or in the repository.
